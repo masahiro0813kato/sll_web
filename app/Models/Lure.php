@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\LureMaker;
 
 class Lure extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    /*protected $fillable = [
         'lure_name_ja',
         'lure_name_en',
         'lure_main_image',
@@ -36,10 +37,11 @@ class Lure extends Model
         'target_fish_5',
         'lure_infomation',
         'is_available',
-    ];
+    ];*/
+
 
     public function lureMakers()
     {
-        return $this->belongsTo(LureMaker::class);
+        return $this->belongsTo(LureMaker::class, 'lure_maker_id');
     }
 }

@@ -10,9 +10,16 @@ html {
 }
 
 body {
-    background-color: var.$primary-bg;
+    background-color: var.$color-bg-primary;
+    color: var.$color-text-primary;
+    overflow: scroll !important;
 }
 
 .bg {
-    background-color: var.$primary-bg;
+    background-color: var.$color-bg-primary;
+}
+
+.scroll {
+    height: 100vh;
+    overflow: scroll;
 }

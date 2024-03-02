@@ -30,6 +30,7 @@
     &__makerName {
         font-size: 0.875rem;
         line-height: 1;
+        margin-bottom: 0.5rem;
     }
 
     &__lureName {
@@ -57,17 +58,19 @@
     }
 
     &__hookTitle {
+        font-size: 0.75rem;
         font-weight: bold;
-        color: var.$color-text-secondary;
+        color: var.$color-text-tertiary;
+    }
+
+    &__hookDotSeparator {
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: var.$color-text-tertiary;
     }
 
     &__ringArea {
         font-size: 0.875rem;
-    }
-
-    &__ringtitle {
-        font-weight: bold;
-        color: var.$color-text-secondary;
     }
 
     &__imgArea {

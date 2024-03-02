@@ -34,6 +34,12 @@ class LureMakerSeeder extends Seeder
                 'lure_maker_logo_image' => 'lure_maker_apia',
                 'lure_maker_ref_url' => 'https://www.apiajapan.com/'
             ],
+            [
+                'lure_maker_name_ja' => 'ブルーブルー',
+                'lure_maker_name_en' => 'BLUE BLUE',
+                'lure_maker_logo_image' => '',
+                'lure_maker_ref_url' => 'https://www.bluebluefishing.com/'
+            ],
         ]);
     }
 }

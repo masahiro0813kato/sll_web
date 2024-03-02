@@ -58,7 +58,7 @@ defineProps({
                                                     {{ lureMaker.lure_maker_name_en }}
                                                 </td>
                                                 <td class="px-4 py-3 border-b-2 border-gray-200">
-                                                    <img :src="'/images/' + lureMaker.lure_maker_logo_image + '.png'" :alt="lureMaker.lure_maker_name_ja" class="w-auto h-7" />
+                                                    <img :src="'/images/lure_makers/' + lureMaker.lure_maker_logo_image + '.png'" :alt="lureMaker.lure_maker_name_ja" class="w-auto h-7" />
                                                 </td>
                                                 <td class="px-4 py-3 text-lg text-gray-900 border-b-2 border-gray-200">
                                                     <span v-if="lureMaker.is_available === 1"> 表示</span>

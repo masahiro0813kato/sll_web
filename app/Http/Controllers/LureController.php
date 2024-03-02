@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateLureRequest;
 use Inertia\Inertia;
 use App\Models\Lure;
 use App\Models\LureMaker;
+use Illuminate\Http\Request;
 
 class LureController extends Controller
 {
@@ -15,23 +16,18 @@ class LureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
+        $request = $request->search;
+
+
         $lures = LureMaker::join('lures', 'lure_makers.id', '=', 'lures.lure_maker_id')
-            ->select(
-                'lures.id',
-                'lure_maker_name_en',
-                'lures.lure_name_ja',
-                'lures.lure_name_en',
-                'lures.lure_tmb_image',
-                'lures.attached_hook_size_1',
-                'lures.attached_hook_size_2',
-                'lures.attached_hook_size_3',
-                'lures.attached_hook_size_4',
-                'lures.attached_hook_size_5',
-                'lures.attached_ring_size',
-            )->where('lures.is_available', true)->get();
+            ->where('lure_maker_name_ja', 'like', '%' . $request . '%')
+            ->orWhere('lure_maker_name_en', 'like', '%' . $request . '%')
+            ->orWhere('lure_name_ja', 'like', '%' . $request . '%')
+            ->orWhere('lure_name_en', 'like', '%' . $request . '%')
+            ->get();
 
         return Inertia::render('Lures/Index', [
             'lures' => $lures
@@ -67,32 +63,10 @@ class LureController extends Controller
      */
     public function show(Lure $lure)
     {
-        return Inertia::render('Lures/Show', [
-            'lures' => Lure::select(
-                'id',
-                'name_ja',
-                'name_en',
-                'image_main',
-                'image_tmb',
-                'hook_size_1',
-                'hook_size_2',
-                'hook_size_3',
-                'hook_size_4',
-                'hook_size_5',
-                'ring_size',
-                'type',
-                'type_buoyancy',
-                'type_action',
-                'action',
-                'length',
-                'weight',
-                'range_min',
-                'range_max',
-                'org_url',
-                'infomation',
-                'is_visible',
-            )->get()
-        ]);
+        $lure_maker = LureMaker::where('id', $lure->lure_maker_id)->get();
+        //dd($lure_maker);
+
+        return Inertia::render('Lures/Show', ['lure' => $lure, 'lure_maker' => $lure_maker]);
     }
 
     /**
