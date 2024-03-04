@@ -30,7 +30,8 @@ class LureController extends Controller
             ->get();
 
         return Inertia::render('Lures/Index', [
-            'lures' => $lures
+            'lures' => $lures,
+            'searchWord => $request'
         ]);
     }
 

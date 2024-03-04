@@ -3,32 +3,35 @@ import Header from "@/Layouts/Header.vue";
 import { Head, Link } from "@inertiajs/vue3";
 import { ref } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+import InputSearch from "@/Components/InputSearch.vue";
+import SiteHeader from "@/Layouts/Header.vue";
 
 defineProps({
     lures: Array,
+    searchWord: String,
 });
 
-const search = ref("");
-// ref の値を取得するには .valueが必要
-const searchLures = () => {
-    Inertia.get(route("lures.index", { search: search.value }));
+const searchLures = (search) => {
+    //console.log(search);
+    Inertia.get(route("lures.index", { search: search }));
 };
 </script>
 
 <template>
     <Head title="ルアー一覧" />
-    <main class="scroll">
-        <section class="w-full p-4 searchbox">
-            <input type="text" name="search" v-model="search" @keypress.enter="searchLures" placeholder="ルアー名 メーカーで検索" />
-        </section>
+    <SiteHeader />
+
+    <main>
+        <InputSearch @searchUpdateItems="searchLures" />
         <section class="main list_card">
-            <div v-for="lure in lures" :key="lure.id" class="card card_lure">
+            <div v-for="lure in lures" :key="lure.id">
                 <Link
                     :href="
                         route('lures.show', {
                             lure: lure.id,
                         })
                     "
+                    class="card card_lure"
                 >
                     <div class="card_lure__textArea">
                         <div>
@@ -69,11 +72,18 @@ const searchLures = () => {
                             </div>
                         </div>
                     </div>
+
+                    <div class="card_lure__imgArea">
+                        <img :src="'/images/lures_tmb/' + lure.lure_tmb_image + '.png'" :alt="lure.lure_name_ja" class="w-auto h-auto" />
+                    </div>
                 </Link>
-                <div class="card_lure__imgArea">
-                    <img :src="'/images/lures_tmb/' + lure.lure_tmb_image + '.png'" :alt="lure.lure_name_ja" class="w-auto h-auto" />
-                </div>
             </div>
         </section>
     </main>
 </template>
+
+<style scoped lang="scss">
+main {
+    margin-top: 4rem;
+}
+</style>

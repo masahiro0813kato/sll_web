@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import nl2br from "@/common";
+import SiteHeader from "@/Layouts/Header.vue";
 
 const props = defineProps({
     lure: Object,
@@ -15,7 +16,9 @@ const bg_image = "url('/images/lures_main/" + props.lure.lure_main_image + ".png
 </script>
 
 <template>
-    <main class="scroll">
+    <SiteHeader />
+
+    <main>
         <Head title="ルアー詳細" />
         <section class="lureShow_image">
             <img :src="'/images/lures_main/' + lure.lure_main_image + '.png'" :alt="lure.lure_name_ja" />
@@ -28,8 +31,9 @@ const bg_image = "url('/images/lures_main/" + props.lure.lure_main_image + ".png
             </div>
             <div class="lureShow_data__specArea">
                 <div class="lureShow_data__categoryArea">
-                    <h2 class>Type</h2>
-                    <div>{{ lure.lure_category }}</div>
+                    <h2>Type</h2>
+                    <div class="lureShow_data__categoryName">{{ lure.lure_category }}</div>
+                    <div class="lureShow_data__actionName">{{ lure.lure_action }}</div>
                 </div>
                 <div class="lureShow_data__hookArea">
                     <h2>Hook Size</h2>
@@ -175,7 +179,7 @@ const bg_image = "url('/images/lures_main/" + props.lure.lure_main_image + ".png
 
     &__lureName_en {
         font-size: 1rem;
-        color: #828282;
+        color: #bdbdbd;
         line-height: 1.2;
     }
 
@@ -191,6 +195,15 @@ const bg_image = "url('/images/lures_main/" + props.lure.lure_main_image + ".png
     &__categoryArea,
     &__hookArea {
         margin-bottom: 2rem;
+    }
+
+    &__categoryName {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+    }
+    &__actionName {
+        font-size: 0.875rem;
+        color: #bdbdbd;
     }
 
     &__otherSpecArea {

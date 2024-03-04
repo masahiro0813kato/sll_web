@@ -1,15 +1,5 @@
 @use "../Foundation/_variable.scss" as var;
 
-.searchbox {
-    & input[type="text"] {
-        width: 100%;
-        padding: 1rem 1rem 1rem 3rem;
-        background-image: url("/public/images/common/icon-search.svg");
-        background-repeat: no-repeat;
-        background-position: 1rem 50%;
-    }
-}
-
 input[type="text"],
 input:where(:not([type])),
 input[type="email"],
