@@ -22,17 +22,59 @@ class LureController extends Controller
         $request = $request->search;
 
 
-        $lures = LureMaker::join('lures', 'lure_makers.id', '=', 'lures.lure_maker_id')
-            ->where('lure_maker_name_ja', 'like', '%' . $request . '%')
-            ->orWhere('lure_maker_name_en', 'like', '%' . $request . '%')
-            ->orWhere('lure_name_ja', 'like', '%' . $request . '%')
-            ->orWhere('lure_name_en', 'like', '%' . $request . '%')
-            ->get();
+        if (!empty($request)) {
+            $lures = LureMaker::join('lures', 'lure_makers.id', '=', 'lures.lure_maker_id')
+                ->where('lure_maker_name_ja', 'like', '%' . $request . '%')
+                ->orWhere('lure_maker_name_en', 'like', '%' . $request . '%')
+                ->orWhere('lure_name_ja', 'like', '%' . $request . '%')
+                ->orWhere('lure_name_en', 'like', '%' . $request . '%')
+                ->select(
+                    'lures.id',
+                    'lure_maker_name_ja',
+                    'lure_maker_name_en',
+                    'lure_name_ja',
+                    'lure_name_en',
+                    'lure_tmb_image',
+                    'attached_hook_size_1',
+                    'attached_hook_size_2',
+                    'attached_hook_size_3',
+                    'attached_hook_size_4',
+                    'attached_hook_size_5',
+                    'attached_ring_size',
+                )
+                ->get();
 
-        return Inertia::render('Lures/Index', [
-            'lures' => $lures,
-            'searchWord => $request'
-        ]);
+            return Inertia::render('Lures/Index', [
+                'lures' => $lures,
+                'searchWord' => $request
+            ]);
+        } else {
+            $lures = LureMaker::join('lures', 'lure_makers.id', '=', 'lures.lure_maker_id')
+                ->select(
+                    'lures.id',
+                    'lure_maker_name_ja',
+                    'lure_maker_name_en',
+                    'lure_name_ja',
+                    'lure_name_en',
+                    'lure_tmb_image',
+                    'attached_hook_size_1',
+                    'attached_hook_size_2',
+                    'attached_hook_size_3',
+                    'attached_hook_size_4',
+                    'attached_hook_size_5',
+                    'attached_ring_size',
+                )
+                ->get();
+
+            return Inertia::render('Lures/Index', [
+                'lures' => $lures,
+                'searchWord' => $request
+            ]);
+        }
+
+        /*return Inertia::render(
+            'Lures/Index'
+        );*/
     }
 
     /**

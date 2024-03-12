@@ -21,6 +21,7 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
-        "@vojtechlanka/vue-simple-suggest": "^2.0.6"
+        "@vojtechlanka/vue-simple-suggest": "^2.0.6",
+        "vue-history-state": "^0.14.0"
     }
 }

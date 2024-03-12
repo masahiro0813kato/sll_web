@@ -1,27 +1,30 @@
 <script setup>
 import Header from "@/Layouts/Header.vue";
 import { Head } from "@inertiajs/vue3";
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { Inertia } from "@inertiajs/inertia";
 import SiteHeader from "@/Layouts/Header.vue";
 import InputSearch from "@/Components/InputSearch.vue";
 import LureList from "@/Components/LureList.vue";
 
-const searchKey = ref("");
-const lureList = ref();
-
-onMounted(() => {
-    lureList.value.getLuresData("");
+const props = defineProps({
+    //lures: Array,
+    //searchKey: String,
 });
 
+const searchKey = ref("");
+
+/*const searchLures = (search) => {
+    //console.log(search);
+    Inertia.get(route("lures.index", { search: search }));
+};*/
 const updateLures = (data) => {
-    // console.log(data);
+    console.log(data);
     if (data != null) {
         searchKey.value = data;
     } else {
         searchKey.value = "";
     }
-    lureList.value.getLuresData(searchKey.value);
 };
 </script>
 
@@ -31,7 +34,9 @@ const updateLures = (data) => {
 
     <main>
         <InputSearch v-model="searchKey" @searchUpdateItems="updateLures" />
-        <LureList ref="lureList" />
+        <LureList v-model="searchKey" />
+        <!-- <input v-model="searchKey" />
+        <p>{{ searchKey }}</p> -->
     </main>
 </template>
 

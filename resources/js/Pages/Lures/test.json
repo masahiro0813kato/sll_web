@@ -1,0 +1,32 @@
+{
+    "current_page": 3,
+    "data": [
+        { "id": 11, "lure_maker_name_ja": "アイマ", "lure_maker_name_en": "ima", "lure_name_ja": "アルデンテ 95S", "lure_name_en": "Aldente 95S", "lure_tmb_image": "lure_tmb_11", "attached_hook_size_1": "#12", "attached_hook_size_2": "#12", "attached_hook_size_3": "", "attached_hook_size_4": "", "attached_hook_size_5": "", "attached_ring_size": "#2" },
+        { "id": 12, "lure_maker_name_ja": "アイマ", "lure_maker_name_en": "ima", "lure_name_ja": "SW 230V ガウル", "lure_name_en": "SW 230V gaur", "lure_tmb_image": "lure_tmb_12", "attached_hook_size_1": "#12", "attached_hook_size_2": "#12", "attached_hook_size_3": "", "attached_hook_size_4": "", "attached_hook_size_5": "", "attached_ring_size": "#2" },
+        { "id": 13, "lure_maker_name_ja": "アイマ", "lure_maker_name_en": "ima", "lure_name_ja": "SW 320V ガウル", "lure_name_en": "SW 320V gaur", "lure_tmb_image": "lure_tmb_13", "attached_hook_size_1": "#12", "attached_hook_size_2": "#12", "attached_hook_size_3": "", "attached_hook_size_4": "", "attached_hook_size_5": "", "attached_ring_size": "#2" },
+        { "id": 14, "lure_maker_name_ja": "アイマ", "lure_maker_name_en": "ima", "lure_name_ja": "エスパーダ 110", "lure_name_en": "ESPADA 110", "lure_tmb_image": "lure_tmb_14", "attached_hook_size_1": "#12", "attached_hook_size_2": "#12", "attached_hook_size_3": "", "attached_hook_size_4": "", "attached_hook_size_5": "", "attached_ring_size": "#2" },
+        { "id": 15, "lure_maker_name_ja": "アイマ", "lure_maker_name_en": "ima", "lure_name_ja": "エンパシー 90", "lure_name_en": "Empathy 90", "lure_tmb_image": "lure_tmb_15", "attached_hook_size_1": "#12", "attached_hook_size_2": "#12", "attached_hook_size_3": "", "attached_hook_size_4": "", "attached_hook_size_5": "", "attached_ring_size": "#2" }
+    ],
+    "first_page_url": "http://localhost:8000/api/getLuresData?page=1",
+    "from": 11,
+    "last_page": 8,
+    "last_page_url": "http://localhost:8000/api/getLuresData?page=8",
+    "links": [
+        { "url": "http://localhost:8000/api/getLuresData?page=2", "label": "« 前", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=1", "label": "1", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=2", "label": "2", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=3", "label": "3", "active": true },
+        { "url": "http://localhost:8000/api/getLuresData?page=4", "label": "4", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=5", "label": "5", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=6", "label": "6", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=7", "label": "7", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=8", "label": "8", "active": false },
+        { "url": "http://localhost:8000/api/getLuresData?page=4", "label": "次 »", "active": false }
+    ],
+    "next_page_url": "http://localhost:8000/api/getLuresData?page=4",
+    "path": "http://localhost:8000/api/getLuresData",
+    "per_page": 5,
+    "prev_page_url": "http://localhost:8000/api/getLuresData?page=2",
+    "to": 15,
+    "total": 40
+}

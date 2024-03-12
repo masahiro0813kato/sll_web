@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Link } from "@inertiajs/vue3";
+</script>
 
 <template>
     <header>
         <div class="logo">
-            <img src="/images/common/logo-sll.svg" alt="SLL Logo" />
+            <Link href="/lures">
+                <img src="/images/common/logo-sll.svg" alt="SLL Logo" />
+            </Link>
         </div>
         <div class="hamburger"></div>
     </header>
